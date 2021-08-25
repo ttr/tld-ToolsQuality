@@ -19,10 +19,10 @@ Manufactured at 0% efficiency is 0, at Y% is 50 (where Y is low threshold / brea
 If boost is enabled, there is also Z% - if quality is above Z%, tool efficiency can go above 300. Disabling boost will be done by setting it to 100%.
 0% > Y% > X% > Z% >= 100%
 
-[graphs]
+![graphs](Quality tools - page 1.png)
 
 #### Stone tools
-(CC @TheDev or @ds5678 as IIRC they did models)
+(CC @TheDev for model permission)
 I would simplify Stone tools t single tool - "sharp stone" and define it as hatchet.
 This way it could be used for harvesting and wood chopping.
 Creating two tools (knife and hatchet) is bit pointless. Knife would be mentioned sharp stone while stone hatchet would be stick + sharp stone + tiding (line, gut, cloth).
