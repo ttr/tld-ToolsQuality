@@ -19,7 +19,7 @@ Manufactured at 0% efficiency is 0, at Y% is 50 (where Y is low threshold / brea
 If boost is enabled, there is also Z% - if quality is above Z%, tool efficiency can go above 300. Disabling boost will be done by setting it to 100%.
 0% > Y% > X% > Z% >= 100%
 
-![graphs](Quality tools - page 1.png)
+![graphs](/TQ_graph1.png)
 
 #### Stone tools
 (CC @TheDev for model permission)
