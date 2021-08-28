@@ -1,5 +1,6 @@
 ﻿using MelonLoader;
 using UnityEngine;
+using UnhollowerBaseLib;
 
 
 namespace ToolsQuality
@@ -24,6 +25,7 @@ namespace ToolsQuality
 
 		public static float ToolsQualityMod(GearItem tool)
         {
+			if (!Settings.options.ToolsQualityEnabled) { return 1f; }
 			string tname = tool.m_GearName;
 			float tcond = tool.GetNormalizedCondition() * 100;
 			if ((tname == "GEAR_KnifeImprovised") || (tname == "GEAR_KnifeScrapMetal") || (tname == "GEAR_HatchetImprovised"))
@@ -57,8 +59,6 @@ namespace ToolsQuality
 			{
 				return 1f;
 			}
-
 		}
 	}
-
 }

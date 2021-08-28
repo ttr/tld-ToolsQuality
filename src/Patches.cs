@@ -1,28 +1,37 @@
 ﻿using HarmonyLib;
+using UnityEngine;
 using MelonLoader;
+
 
 namespace ToolsQuality
 {
     internal static class Patches
     {
-        [HarmonyPatch(typeof(BreakDown), "Start")]
-        public class BreakDown_Start
+        [HarmonyPatch(typeof(Panel_BreakDown), "UpdateDurationLabel")]
+        public class Panel_BreakDown_UpdateDurationLabel
         {
-            private static void Postfix(BreakDown __instance)
+            private static void Postfix(Panel_BreakDown __instance)
             {
 
-                if (__instance.m_DisplayName == "Branch")
+                if (__instance.m_BreakDown.m_DisplayName == "Branch")
                 {
-                    __instance.m_TimeCostHours *= Settings.options.BreakBranchTimeMultiplier;
+                    __instance.m_DurationHours *= Settings.options.BreakBranchTimeMultiplier;
                 }
 
-                if (__instance.m_DisplayName.EndsWith("Limb"))
+                if (__instance.m_BreakDown.m_DisplayName.EndsWith("Limb"))
                 {
-                    __instance.m_TimeCostHours *= Settings.options.BreakLimbTimeMultiplier;
+                    __instance.m_DurationHours *= Settings.options.BreakLimbTimeMultiplier;
+                }
+
+                if (__instance.GetSelectedTool())
+                {
+                    MelonLogger.Msg("IN " + __instance.m_DurationHours);
+                    __instance.m_DurationHours *= ToolsQuality.ToolsQualityMod(__instance.GetSelectedTool());
+                    MelonLogger.Msg("OUT " + __instance.m_DurationHours);
+                    __instance.m_DurationLabel.text = Utils.GetExpandedDurationString(Mathf.RoundToInt(__instance.m_DurationHours * 60f));
                 }
             }
         }
-
         [HarmonyPatch(typeof(Panel_BodyHarvest), "GetHarvestDurationMinutes")]
         public class Panel_BodyHarvest_GetHarvestDurationMinutes
         {
@@ -37,8 +46,5 @@ namespace ToolsQuality
                 __result *= timemod;
             }
         }
-
     }
-
-
 }
