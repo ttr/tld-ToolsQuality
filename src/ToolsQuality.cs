@@ -42,7 +42,7 @@ namespace ToolsQuality
 			{
 				if (tcond > Settings.options.ManBoostQpct) {
 
-					float TimeDiff = 1f - Settings.options.ManLowQTime;
+					float TimeDiff = 1f - Settings.options.ManBoostQTime;
 					float QualitryRatio = Mathf.InverseLerp(Settings.options.ManHighQpct, Settings.options.ManBoostQpct, tcond);
 					return 1f - (TimeDiff * QualitryRatio);
 				}

@@ -21,6 +21,11 @@ namespace ToolsQuality
 		[Slider(0.1f, 3f)]
 		public float HarvestTimeMultiplier = 1f;
 
+		[Name("Time multiplier when quatering animals")]
+		[Description("Time multiplier when quatering animals")]
+		[Slider(0.1f, 3f)]
+		public float QuaterTimeMultiplier = 1f;
+
 		[Name("Tools quality")]
 		[Description("If enabled, lower condition of tool will increase action time (settings below). Vanila is off.")]
 		public bool ToolsQualityEnabled = false;

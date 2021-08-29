@@ -32,6 +32,7 @@ namespace ToolsQuality
                 }
             }
         }
+
         [HarmonyPatch(typeof(Panel_BodyHarvest), "GetHarvestDurationMinutes")]
         public class Panel_BodyHarvest_GetHarvestDurationMinutes
         {
@@ -44,6 +45,39 @@ namespace ToolsQuality
                     timemod *= ToolsQuality.ToolsQualityMod(tool);
                 }
                 __result *= timemod;
+            }
+        }
+
+        [HarmonyPatch(typeof(Panel_BodyHarvest), "GetQuarterDurationMinutes")]
+        public class Panel_BodyHarvest_GetQuarterDurationMinutes
+        {
+            private static void Postfix(Panel_BodyHarvest __instance, ref float __result)
+            {
+                GearItem tool = __instance.GetSelectedTool();
+                float timemod = Settings.options.QuaterTimeMultiplier;
+                if (tool)
+                {
+                    timemod *= ToolsQuality.ToolsQualityMod(tool);
+                }
+                __result *= timemod;
+                // label does not update
+                if (__instance.m_Label_QuarterEstimatedTime)
+                {
+                    __instance.m_Label_QuarterEstimatedTime.text = Utils.GetExpandedDurationString(Mathf.RoundToInt(__result));
+                }
+            }
+        }
+
+        [HarmonyPatch(typeof(Panel_Crafting), "GetModifiedCraftingDuration")]
+        public class Panel_Crafting_GetModifiedCraftingDuration
+        {
+            private static void Postfix(Panel_Crafting __instance, ref int __result)
+            {
+                GearItem tool = __instance.m_RequirementContainer.GetSelectedTool();
+                if (tool)
+                {
+                    __result = (int)(__result * ToolsQuality.ToolsQualityMod(tool));
+                }
             }
         }
     }
