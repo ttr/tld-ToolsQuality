@@ -38,7 +38,7 @@ namespace ToolsQuality
 					return 1f + (TimeDiff * QualityRatio);
 				}
 			}
-			else if ((tname == "GEAR_Hacksaw") || (tname == "GEAR_Knife") || (tname == "GEAR_Hatchet"))
+			else if ((tname == "GEAR_Knife") || (tname == "GEAR_Hatchet"))
 			{
 				if (tcond > Settings.options.ManBoostQpct) {
 
@@ -52,6 +52,17 @@ namespace ToolsQuality
 				{
 					float TimeDiff = Settings.options.ManLowQTime - 1f;
 					float QualityRatio = 1f - Mathf.InverseLerp(Settings.options.ManLowQpct, Settings.options.ManHighQpct, tcond);
+					return 1f + (TimeDiff * QualityRatio);
+				}
+			}
+			else if (tname == "GEAR_Hacksaw")
+            {
+				if (tcond > Settings.options.HackHighQpct) { return 1f; }
+				else if (tcond <= Settings.options.HackLowQpct) { return Settings.options.HackLowQTime; }
+				else
+				{
+					float TimeDiff = Settings.options.HackLowQTime - 1f;
+					float QualityRatio = 1f - Mathf.InverseLerp(Settings.options.HackLowQpct, Settings.options.HackHighQpct, tcond);
 					return 1f + (TimeDiff * QualityRatio);
 				}
 			}

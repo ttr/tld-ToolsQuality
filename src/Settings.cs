@@ -56,6 +56,22 @@ namespace ToolsQuality
 		[Slider(0.1f, 1f)]
 		public float ManBoostQTime = 0.7f;
 
+		[Section("Hacksaw")]
+		[Name("Low Qulaity condition point")]
+		[Description("Below (incluisive) this condition tool will be perfoemin with mutiplier of next value.")]
+		[Slider(0, 100, 101)]
+		public int HackLowQpct = 0;
+
+		[Name("Low Qulaity time mutiplier")]
+		[Description("Time mutiplier for bad condtion - remomended 3-4")]
+		[Slider(1f, 10f)]
+		public int HackLowQTime = 3;
+
+		[Name("High Qulaity condition point")]
+		[Description("Above (incluisive) this condition, tool will not have penalty")]
+		[Slider(0, 100, 101)]
+		public int HackHighQpct = 70;
+
 		[Section("Improvised tools")]
 		[Name("Low Qulaity condition point")]
 		[Description("Below (incluisive) this condition tool will be perfoemin with mutiplier of next value.")]

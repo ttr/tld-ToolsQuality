@@ -25,9 +25,7 @@ namespace ToolsQuality
 
                 if (__instance.GetSelectedTool())
                 {
-                    MelonLogger.Msg("IN " + __instance.m_DurationHours);
                     __instance.m_DurationHours *= ToolsQuality.ToolsQualityMod(__instance.GetSelectedTool());
-                    MelonLogger.Msg("OUT " + __instance.m_DurationHours);
                     __instance.m_DurationLabel.text = Utils.GetExpandedDurationString(Mathf.RoundToInt(__instance.m_DurationHours * 60f));
                 }
             }
