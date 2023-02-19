@@ -32,7 +32,7 @@ namespace ToolsQuality
 
 		[Section("Manufactured tools")]
 		[Name("Low Qulaity condition point")]
-		[Description("Below (incluisive) this condition tool will be perfoemin with mutiplier of next value.")]
+		[Description("Below (incluisive) this condition tool will be performing with mutiplier of next value.")]
 		[Slider(0, 100, 101)]
 		public int ManLowQpct = 10;
 
@@ -58,7 +58,7 @@ namespace ToolsQuality
 
 		[Section("Hacksaw")]
 		[Name("Low Qulaity condition point")]
-		[Description("Below (incluisive) this condition tool will be perfoemin with mutiplier of next value.")]
+		[Description("Below (incluisive) this condition tool will be performing with mutiplier of next value.")]
 		[Slider(0, 100, 101)]
 		public int HackLowQpct = 0;
 

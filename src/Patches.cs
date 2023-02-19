@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using UnityEngine;
 using MelonLoader;
+using Il2Cpp;
 
 
 namespace ToolsQuality
@@ -8,17 +9,18 @@ namespace ToolsQuality
     internal static class Patches
     {
         [HarmonyPatch(typeof(Panel_BreakDown), "UpdateDurationLabel")]
+
         public class Panel_BreakDown_UpdateDurationLabel
         {
             private static void Postfix(Panel_BreakDown __instance)
             {
-
-                if (__instance.m_BreakDown.m_DisplayName == "Branch")
+                MelonLogger.Msg(__instance.m_BreakDown.name);
+                if (__instance.m_BreakDown.name.Contains("Branch"))
                 {
                     __instance.m_DurationHours *= Settings.options.BreakBranchTimeMultiplier;
                 }
 
-                if (__instance.m_BreakDown.m_DisplayName.EndsWith("Limb"))
+                if (__instance.m_BreakDown.name.Contains("Limb"))
                 {
                     __instance.m_DurationHours *= Settings.options.BreakLimbTimeMultiplier;
                 }

@@ -1,33 +1,31 @@
 ﻿using MelonLoader;
 using UnityEngine;
-using UnhollowerBaseLib;
+using Il2Cpp;
 
 
 namespace ToolsQuality
 {
 	public static class BuildInfo
 	{
-		public const string Name = "ToolsQuality"; // Name of the Mod.  (MUST BE SET)
-		public const string Description = "Keep Your tools sharp."; // Description for the Mod.  (Set as null if none)
-		public const string Author = "ttr"; // Author of the Mod.  (MUST BE SET)
-		public const string Company = null; // Company that made the Mod.  (Set as null if none)
-		public const string Version = "1.1.0"; // Version of the Mod.  (MUST BE SET)
-		public const string DownloadLink = null; // Download Link for the Mod.  (Set as null if none)
-	}
+        internal const string ModName = "ToolsQuality";
+        internal const string ModAuthor = "ttr";
+        internal const string ModVersion = "1.2.0";
+    }
 	internal class ToolsQuality : MelonMod
 	{
 
-		public override void OnApplicationStart()
-		{
-			Debug.Log($"[{Info.Name}] Version {Info.Version} loaded!");
-			Settings.OnLoad();
-		}
+        public override void OnInitializeMelon()
+        {
+            Settings.OnLoad();
+            LoggerInstance.Msg($"[{BuildInfo.ModName}] Version {BuildInfo.ModVersion} loaded!");
+        }
 
-		public static float ToolsQualityMod(GearItem tool)
+        public static float ToolsQualityMod(GearItem tool)
         {
 			if (!Settings.options.ToolsQualityEnabled) { return 1f; }
-			string tname = tool.m_GearName;
+			string tname = tool.name;
 			float tcond = tool.GetNormalizedCondition() * 100;
+
 			if ((tname == "GEAR_KnifeImprovised") || (tname == "GEAR_KnifeScrapMetal") || (tname == "GEAR_HatchetImprovised"))
 			{
 				if (tcond > Settings.options.ImpHighQpct) { return 1f; }
