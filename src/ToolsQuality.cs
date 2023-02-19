@@ -7,11 +7,11 @@ namespace ToolsQuality
 {
 	public static class BuildInfo
 	{
-        internal const string ModName = "ToolsQuality";
-        internal const string ModAuthor = "ttr";
-        internal const string ModVersion = "1.2.0";
-    }
-	internal class ToolsQuality : MelonMod
+		internal const string ModName = "ToolsQuality";
+		internal const string ModAuthor = "ttr";
+		internal const string ModVersion = "1.2.1";
+	}
+    internal class ToolsQuality : MelonMod
 	{
 
         public override void OnInitializeMelon()

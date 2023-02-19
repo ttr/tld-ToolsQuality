@@ -16,6 +16,11 @@ namespace ToolsQuality
 		[Slider(0.1f, 3f)]
 		public float BreakLimbTimeMultiplier = 1f;
 
+		[Name("Time multiplier when chopping pallets")]
+		[Description("Time multiplier when chopping wood pallets - recommened 0.5")]
+		[Slider(0.1f, 3f)]
+		public float BreakPalletTimeMultiplier = 1f;
+
 		[Name("Time multiplier when harvesting animals")]
 		[Description("Time multiplier when harvesting animals")]
 		[Slider(0.1f, 3f)]

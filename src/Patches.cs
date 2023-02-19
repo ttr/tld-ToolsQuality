@@ -14,16 +14,21 @@ namespace ToolsQuality
         {
             private static void Postfix(Panel_BreakDown __instance)
             {
-                MelonLogger.Msg(__instance.m_BreakDown.name);
+
                 if (__instance.m_BreakDown.name.Contains("Branch"))
                 {
                     __instance.m_DurationHours *= Settings.options.BreakBranchTimeMultiplier;
                 }
 
-                if (__instance.m_BreakDown.name.Contains("Limb"))
+                else if (__instance.m_BreakDown.name.Contains("Limb"))
                 {
                     __instance.m_DurationHours *= Settings.options.BreakLimbTimeMultiplier;
                 }
+                else if (__instance.m_BreakDown.name.Contains("PalletPile"))
+                {
+                    __instance.m_DurationHours *= Settings.options.BreakPalletTimeMultiplier;
+                }
+
 
                 if (__instance.GetSelectedTool())
                 {
