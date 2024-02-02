@@ -22,12 +22,12 @@ namespace ToolsQuality
 		public float BreakPalletTimeMultiplier = 1f;
 		
 		[Name("Animal Harvesting Time Multiplier")]
-		[Description("Adjusts the time multiplier for animal harvesting. Recommended value: 0.5.")]
+		[Description("Adjusts the time multiplier for animal harvesting.")]
 		[Slider(0.1f, 3f)]
 		public float HarvestTimeMultiplier = 1f;
 		
 		[Name("Quartering Time Multiplier")]
-		[Description("Adjusts the time multiplier for quartering during harvesting. Recommended value: 0.5.")]
+		[Description("Adjusts the time multiplier for quartering during harvesting.")]
 		[Slider(0.1f, 3f)]
 		public float QuarterTimeMultiplier = 1f;
 		
