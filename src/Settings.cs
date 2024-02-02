@@ -26,8 +26,8 @@ namespace ToolsQuality
 		[Slider(0.1f, 3f)]
 		public float HarvestTimeMultiplier = 1f;
 		
-		[Name("Quartering Time Multiplier")]
-		[Description("Adjusts the time multiplier for quartering during harvesting.")]
+		[Name("Animal Quartering Time Multiplier")]
+		[Description("Adjusts the time multiplier for animal quartering.")]
 		[Slider(0.1f, 3f)]
 		public float QuarterTimeMultiplier = 1f;
 		
