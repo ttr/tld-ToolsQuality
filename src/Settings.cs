@@ -5,91 +5,91 @@ namespace ToolsQuality
 {
 	internal class ToolsQualitySettings : JsonModSettings
 	{
-		[Section("Main settings")]
-		[Name("Time multiplier when breaking branches")]
-		[Description("Time multiplier when chopping or breaking branches - recommened 0.5")]
+		[Section("Main Settings")]
+		[Name("Branch Breaking Time Multiplier")]
+		[Description("Adjusts the time multiplier for chopping or breaking branches. Recommended value: 0.5.")]
 		[Slider(0.1f, 3f)]
 		public float BreakBranchTimeMultiplier = 1f;
-
-		[Name("Time multiplier when chopping limbs")]
-		[Description("Time multiplier when chopping limbs - recommened 0.5")]
+		
+		[Name("Limb Chopping Time Multiplier")]
+		[Description("Adjusts the time multiplier for chopping limbs. Recommended value: 0.5.")]
 		[Slider(0.1f, 3f)]
 		public float BreakLimbTimeMultiplier = 1f;
-
-		[Name("Time multiplier when chopping pallets")]
-		[Description("Time multiplier when chopping wood pallets - recommened 0.5")]
+		
+		[Name("Wood Pallet Chopping Time Multiplier")]
+		[Description("Adjusts the time multiplier for chopping wood pallets. Recommended value: 0.5.")]
 		[Slider(0.1f, 3f)]
 		public float BreakPalletTimeMultiplier = 1f;
-
-		[Name("Time multiplier when harvesting animals")]
-		[Description("Time multiplier when harvesting animals")]
+		
+		[Name("Animal Harvesting Time Multiplier")]
+		[Description("Adjusts the time multiplier for animal harvesting. Recommended value: 0.5.")]
 		[Slider(0.1f, 3f)]
 		public float HarvestTimeMultiplier = 1f;
-
-		[Name("Time multiplier when quatering animals")]
-		[Description("Time multiplier when quatering animals")]
+		
+		[Name("Quartering Time Multiplier")]
+		[Description("Adjusts the time multiplier for quartering during harvesting. Recommended value: 0.5.")]
 		[Slider(0.1f, 3f)]
-		public float QuaterTimeMultiplier = 1f;
-
-		[Name("Tools quality")]
-		[Description("If enabled, lower condition of tool will increase action time (settings below). Vanila is off.")]
+		public float QuarterTimeMultiplier = 1f;
+		
+		[Name("Tool Quality Impact")]
+		[Description("Enables or disables the feature where a tool's lower condition increases the action time. Disabled by default.")]
 		public bool ToolsQualityEnabled = false;
-
-		[Section("Manufactured tools")]
-		[Name("Low Qulaity condition point")]
-		[Description("Below (incluisive) this condition tool will be performing with mutiplier of next value.")]
+		
+		[Section("Manufactured Tools")]
+		[Name("Low-Quality Condition Threshold")]
+		[Description("The condition threshold below which a tool is considered low quality and performs with an increased time multiplier.")]
 		[Slider(0, 100, 101)]
 		public int ManLowQpct = 10;
-
-		[Name("Low Qulaity time mutiplier")]
-		[Description("Time mutiplier for bad condtion - remomended 3-4")]
+		
+		[Name("Low-Quality Time Multiplier")]
+		[Description("The time multiplier for tools in bad condition. Recommended value: 3-4.")]
 		[Slider(1f, 10f)]
 		public int ManLowQTime = 3;
-
-		[Name("High Qulaity condition point")]
-		[Description("Above (incluisive) this condition, tool will not have penalty")]
+		
+		[Name("High-Quality Condition Threshold")]
+		[Description("The condition threshold above which a tool is considered high quality and incurs no penalty.")]
 		[Slider(0, 100, 101)]
 		public int ManHighQpct = 85;
-
-		[Name("Boost Qulaity condition point")]
-		[Description("Above this point, tool will have efficiency bonus, used with next value. Set to 100 to disable.")]
+		
+		[Name("Boost Quality Condition Threshold")]
+		[Description("The condition threshold above which a tool receives an efficiency bonus. Set to 100 to disable.")]
 		[Slider(0, 100, 101)]
 		public int ManBoostQpct = 100;
-
-		[Name("Boost Qulaity time mutiplier")]
-		[Description("Time mutiplier for perfect condtion - remomended 0.7 (if used)")]
+		
+		[Name("Boost Quality Time Multiplier")]
+		[Description("The time multiplier for tools in perfect condition. Recommended value: 0.7 (if used).")]
 		[Slider(0.1f, 1f)]
 		public float ManBoostQTime = 0.7f;
-
+		
 		[Section("Hacksaw")]
-		[Name("Low Qulaity condition point")]
-		[Description("Below (incluisive) this condition tool will be performing with mutiplier of next value.")]
+		[Name("Low-Quality Condition Threshold")]
+		[Description("The condition threshold below which a hacksaw is considered low quality and performs with an increased time multiplier.")]
 		[Slider(0, 100, 101)]
 		public int HackLowQpct = 0;
-
-		[Name("Low Qulaity time mutiplier")]
-		[Description("Time mutiplier for bad condtion - remomended 3-4")]
+		
+		[Name("Low-Quality Time Multiplier")]
+		[Description("The time multiplier for hacksaws in bad condition. Recommended value: 3-4.")]
 		[Slider(1f, 10f)]
 		public int HackLowQTime = 3;
-
-		[Name("High Qulaity condition point")]
-		[Description("Above (incluisive) this condition, tool will not have penalty")]
+		
+		[Name("High-Quality Condition Threshold")]
+		[Description("The condition threshold above which a hacksaw is considered high quality and incurs no penalty.")]
 		[Slider(0, 100, 101)]
 		public int HackHighQpct = 70;
-
-		[Section("Improvised tools")]
-		[Name("Low Qulaity condition point")]
-		[Description("Below (incluisive) this condition tool will be perfoemin with mutiplier of next value.")]
+		
+		[Section("Improvised Tools")]
+		[Name("Low-Quality Condition Threshold")]
+		[Description("The condition threshold below which an improvised tool is considered low quality and performs with an increased time multiplier.")]
 		[Slider(0, 100, 101)]
 		public int ImpLowQpct = 0;
-
-		[Name("Low Qulaity time mutiplier")]
-		[Description("Time mutiplier for bad condtion - remomended 2-3")]
+		
+		[Name("Low-Quality Time Multiplier")]
+		[Description("The time multiplier for improvised tools in bad condition. Recommended value: 2-3.")]
 		[Slider(1f, 10f)]
 		public int ImpLowQTime = 2;
-
-		[Name("High Qulaity condition point")]
-		[Description("Above (incluisive) this condition, tool will not have penalty")]
+		
+		[Name("High-Quality Condition Threshold")]
+		[Description("The condition threshold above which an improvised tool is considered high quality and incurs no penalty.")]
 		[Slider(0, 100, 101)]
 		public int ImpHighQpct = 100;
 		protected override void OnChange(FieldInfo field, object oldValue, object newValue)
