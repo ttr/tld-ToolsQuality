@@ -8,7 +8,7 @@ namespace ToolsQuality
 {
     internal static class Patches
     {
-        [HarmonyPatch(typeof(Panel_BreakDown), "UpdateDurationLabel")]
+        [HarmonyPatch(typeof(Panel_BreakDown), nameof(Panel_BreakDown.UpdateDurationLabel))]
 
         public class Panel_BreakDown_UpdateDurationLabel
         {
@@ -38,7 +38,7 @@ namespace ToolsQuality
             }
         }
 
-        [HarmonyPatch(typeof(Panel_BodyHarvest), "GetHarvestDurationMinutes")]
+        [HarmonyPatch(typeof(Panel_BodyHarvest), nameof(Panel_BodyHarvest.GetHarvestDurationMinutes))]
         public class Panel_BodyHarvest_GetHarvestDurationMinutes
         {
             private static void Postfix(Panel_BodyHarvest __instance, ref float __result)
@@ -53,7 +53,7 @@ namespace ToolsQuality
             }
         }
 
-        [HarmonyPatch(typeof(Panel_BodyHarvest), "GetQuarterDurationMinutes")]
+        [HarmonyPatch(typeof(Panel_BodyHarvest), nameof(Panel_BodyHarvest.GetQuarterDurationMinutes))]
         public class Panel_BodyHarvest_GetQuarterDurationMinutes
         {
             private static void Postfix(Panel_BodyHarvest __instance, ref float __result)
@@ -73,7 +73,7 @@ namespace ToolsQuality
             }
         }
 
-        [HarmonyPatch(typeof(Panel_Crafting), "GetModifiedCraftingDuration")]
+        [HarmonyPatch(typeof(Panel_Crafting), nameof(Panel_Crafting.GetModifiedCraftingDuration))]
         public class Panel_Crafting_GetModifiedCraftingDuration
         {
             private static void Postfix(Panel_Crafting __instance, ref int __result)

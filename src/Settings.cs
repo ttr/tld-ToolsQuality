@@ -36,59 +36,59 @@ namespace ToolsQuality
 		public bool ToolsQualityEnabled = false;
 
 		[Section("Manufactured tools")]
-		[Name("Low Qulaity condition point")]
+		[Name("Low Quality condition point")]
 		[Description("Below (incluisive) this condition tool will be performing with mutiplier of next value.")]
 		[Slider(0, 100, 101)]
 		public int ManLowQpct = 10;
 
-		[Name("Low Qulaity time mutiplier")]
+		[Name("Low Quality time mutiplier")]
 		[Description("Time mutiplier for bad condtion - remomended 3-4")]
 		[Slider(1f, 10f)]
 		public int ManLowQTime = 3;
 
-		[Name("High Qulaity condition point")]
+		[Name("High Quality condition point")]
 		[Description("Above (incluisive) this condition, tool will not have penalty")]
 		[Slider(0, 100, 101)]
 		public int ManHighQpct = 85;
 
-		[Name("Boost Qulaity condition point")]
+		[Name("Boost Quality condition point")]
 		[Description("Above this point, tool will have efficiency bonus, used with next value. Set to 100 to disable.")]
 		[Slider(0, 100, 101)]
 		public int ManBoostQpct = 100;
 
-		[Name("Boost Qulaity time mutiplier")]
+		[Name("Boost Quality time mutiplier")]
 		[Description("Time mutiplier for perfect condtion - remomended 0.7 (if used)")]
 		[Slider(0.1f, 1f)]
 		public float ManBoostQTime = 0.7f;
 
 		[Section("Hacksaw")]
-		[Name("Low Qulaity condition point")]
+		[Name("Low Quality condition point")]
 		[Description("Below (incluisive) this condition tool will be performing with mutiplier of next value.")]
 		[Slider(0, 100, 101)]
 		public int HackLowQpct = 0;
 
-		[Name("Low Qulaity time mutiplier")]
+		[Name("Low Quality time mutiplier")]
 		[Description("Time mutiplier for bad condtion - remomended 3-4")]
 		[Slider(1f, 10f)]
 		public int HackLowQTime = 3;
 
-		[Name("High Qulaity condition point")]
+		[Name("High Quality condition point")]
 		[Description("Above (incluisive) this condition, tool will not have penalty")]
 		[Slider(0, 100, 101)]
 		public int HackHighQpct = 70;
 
 		[Section("Improvised tools")]
-		[Name("Low Qulaity condition point")]
+		[Name("Low Quality condition point")]
 		[Description("Below (incluisive) this condition tool will be perfoemin with mutiplier of next value.")]
 		[Slider(0, 100, 101)]
 		public int ImpLowQpct = 0;
 
-		[Name("Low Qulaity time mutiplier")]
+		[Name("Low Quality time mutiplier")]
 		[Description("Time mutiplier for bad condtion - remomended 2-3")]
 		[Slider(1f, 10f)]
 		public int ImpLowQTime = 2;
 
-		[Name("High Qulaity condition point")]
+		[Name("High Quality condition point")]
 		[Description("Above (incluisive) this condition, tool will not have penalty")]
 		[Slider(0, 100, 101)]
 		public int ImpHighQpct = 100;
