@@ -66,10 +66,11 @@ namespace ToolsQuality
                 }
                 __result *= timemod;
                 // label does not update
-                if (__instance.m_Label_QuarterEstimatedTime)
+                if (__instance.m_Label_EstimatedTime != null)
                 {
-                    __instance.m_Label_QuarterEstimatedTime.text = Utils.GetExpandedDurationString(Mathf.RoundToInt(__result));
+                    __instance.m_Label_EstimatedTime.text = Utils.GetExpandedDurationString(Mathf.RoundToInt(__result));
                 }
+                
             }
         }
 
