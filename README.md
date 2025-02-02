@@ -26,25 +26,3 @@ If boost is enabled, there is also Z% - if quality is above Z%, tool efficiency 
 0% > Y% > X% > Z% >= 100%
 
 ![graphs](/TQ_graph1.png)
-
-#### Stone/bone tools (fututre proposal)
-
-(CC @TheDev for model permission)
-I would simplify Stone tools to single tool - "sharp stone" and define it as hatchet.
-This way it could be used for harvesting and wood chopping.
-Creating two tools (knife and hatchet) is bit pointless. Knife would be mentioned sharp stone while stone hatchet would be stick + sharp stone + tiding (line, gut, cloth).
-Because stick is very weak this would be very low condition item and in end would be destroyed anyway.
-
-Single item idea IMO works better:
-* You can carve meet and skin with it - for simplicity we will ignore fact that it would damage all resulting items and just make it painfully long.
-* You can use to cut those small trees (saplings?) - it will be more of "cutting them with blunt knife" than hacking so extend some time
-* branches and bushes should be more less same as they are very thin... perhaps just make them same time as no tool
-* limbs will take time (you are bashing rock into it) and with high possibility of breaking - or very high degradation, or (preferred) RNG test to destroy this tool on use.
-
-Proposed values:
-Animal harvesting: 3-4x
-Limb chopping: 4-5x
-Branch/Bush chopping: 1.5-2x
-Small trees: no change (for now)
-
-

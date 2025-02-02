@@ -2,6 +2,7 @@
 using UnityEngine;
 using MelonLoader;
 using Il2Cpp;
+using UnityEngine.Playables;
 
 
 namespace ToolsQuality
@@ -14,7 +15,6 @@ namespace ToolsQuality
         {
             private static void Postfix(Panel_BreakDown __instance)
             {
-
                 if (__instance.m_BreakDown.name.Contains("Branch"))
                 {
                     __instance.m_DurationHours *= Settings.options.BreakBranchTimeMultiplier;
@@ -33,7 +33,7 @@ namespace ToolsQuality
                 if (__instance.GetSelectedTool())
                 {
                     __instance.m_DurationHours *= ToolsQuality.ToolsQualityMod(__instance.GetSelectedTool());
-                    __instance.m_DurationLabel.text = Utils.GetExpandedDurationString(Mathf.RoundToInt(__instance.m_DurationHours * 60f));
+                    __instance.m_BreakdownInfo.m_DurationLabel.text = Utils.GetExpandedDurationString(Mathf.RoundToInt(__instance.m_DurationHours * 60f));
                 }
             }
         }
