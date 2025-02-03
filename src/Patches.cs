@@ -41,6 +41,8 @@ namespace ToolsQuality
         [HarmonyPatch(typeof(Panel_BodyHarvest), nameof(Panel_BodyHarvest.GetHarvestDurationMinutes))]
         public class Panel_BodyHarvest_GetHarvestDurationMinutes
         {
+            //[HarmonyBefore(new string[] {"CarcassYieldTweaker"})]
+            [HarmonyPriority(Priority.High)] 
             private static void Postfix(Panel_BodyHarvest __instance, ref float __result)
             {
                 GearItem tool = __instance.GetSelectedTool();

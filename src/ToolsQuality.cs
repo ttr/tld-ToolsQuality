@@ -9,7 +9,7 @@ namespace ToolsQuality
 	{
 		internal const string ModName = "ToolsQuality";
 		internal const string ModAuthor = "ttr";
-		internal const string ModVersion = "2.2.0";
+		internal const string ModVersion = "2.2.1";
 	}
     internal class ToolsQuality : MelonMod
 	{
