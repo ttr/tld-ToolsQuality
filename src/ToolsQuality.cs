@@ -44,8 +44,8 @@ namespace ToolsQuality
 				if (tcond > Settings.options.ManBoostQpct) {
 
 					float TimeDiff = 1f - Settings.options.ManBoostQTime;
-					float QualitryRatio = Mathf.InverseLerp(Settings.options.ManHighQpct, Settings.options.ManBoostQpct, tcond);
-					return 1f - (TimeDiff * QualitryRatio);
+					float QualityRatio = Mathf.InverseLerp(Settings.options.ManBoostQpct, 100, tcond);
+					return 1f - (TimeDiff * QualityRatio);
 				}
 				else if (tcond > Settings.options.ManHighQpct) { return 1f; }
 				else if (tcond <= Settings.options.ManLowQpct) { return Settings.options.ManLowQTime; }

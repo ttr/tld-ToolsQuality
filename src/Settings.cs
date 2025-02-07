@@ -127,6 +127,9 @@ namespace ToolsQuality
 				SetFieldVisible(nameof(ImpLowQpct), true);
 				SetFieldVisible(nameof(ImpLowQTime), true);
 				SetFieldVisible(nameof(ImpHighQpct), true);
+        SetFieldVisible(nameof(HackHighQpct), true);
+        SetFieldVisible(nameof(HackLowQpct), true);
+        SetFieldVisible(nameof(HackLowQTime), true);
 			}
 			else
       {
@@ -139,6 +142,9 @@ namespace ToolsQuality
 				SetFieldVisible(nameof(ImpLowQpct), false);
 				SetFieldVisible(nameof(ImpLowQTime), false);
 				SetFieldVisible(nameof(ImpHighQpct), false);
+        SetFieldVisible(nameof(HackHighQpct), false);
+        SetFieldVisible(nameof(HackLowQpct), false);
+        SetFieldVisible(nameof(HackLowQTime), false);
 			}
 			RefreshGUI();
 		}

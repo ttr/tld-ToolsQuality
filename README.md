@@ -14,7 +14,6 @@ Issue: In TLD tools quality are ignored and it's pointless to keep them maintain
 * Improvised tools have lower top efficiency but higher bottom one while compared to manufactured ones
 * Manufactured tools can have "boost" efficiency above certain threshold
 * Manufactured tools get inoperable below certain threshold while crude will work on minimal efficiency (do not get destroyed)
-* Add stone tool(s) - it's efficiency is lower than any other tools
 * (optional) Struggle tweaks - damage is scaled based on all above.
 * Deprecate "QuickerWoodCutting" and add it to this (as base) and perhaps extend functionality to animal harvesting.
 
