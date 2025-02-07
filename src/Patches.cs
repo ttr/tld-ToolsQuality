@@ -80,29 +80,43 @@ namespace ToolsQuality
             private static void Postfix(Panel_Crafting __instance, ref int __result)
             {
                 GearItem tool = __instance.m_RequirementContainer.GetSelectedTool();
-                if (tool)
+                if (Settings.options.ToolsQualityEnabledCrafting && tool)
                 {
-                  __result = (int)(__result * ToolsQuality.ToolsQualityMod(tool));
+                  if (!__instance.SelectedWIP || (__instance.SelectedWIP && __result > 10)) {
+                    __result = (int)(__result * ToolsQuality.ToolsQualityMod(tool));
+                  }
                 }
             }
         }
+        
         [HarmonyPatch(typeof(Panel_Crafting), nameof(Panel_Crafting.Update))]
         public class Panel_Crafting_Update {
           private static void Prefix(Panel_Crafting __instance, out float __state){
-            ToolsQuality.Log("Panel_Crafting_update +");
-            __state = 0f;
-            InProgressCraftItem wip = __instance.SelectedWIP;
-            if (wip){
-              __state = wip.m_PercentComplete;
+            __state = -1f;
+            if (Settings.options.ToolsQualityEnabledCrafting &&  __instance.IsAcceleratingTime()) {
+              if (__instance.SelectedWIP) {
+                __state = __instance.SelectedWIP.m_PercentComplete;
+              }
+              else {
+                __state = 0f;
+              }
             }
+            ToolsQuality.Log("Panel_Crafting_update + " + __state);
           }
           private static void Postfix(Panel_Crafting __instance, ref float __state){
-            InProgressCraftItem wip = __instance.SelectedWIP;
             GearItem tool = __instance.m_RequirementContainer.GetSelectedTool();
-            if (wip && tool){
-              wip.m_PercentComplete = __state + ((wip.m_PercentComplete - __state) / ToolsQuality.ToolsQualityMod(tool));
+            if (Settings.options.ToolsQualityEnabledCrafting && __state >= 0f && tool && __instance.SelectedWIP)
+             {
+              float last15minPct = Mathf.Min((1f - 10f / __instance.SelectedBPI.m_DurationMinutes) * 100f, 99f);
+              if (__instance.SelectedWIP?.m_PercentComplete < last15minPct)
+              {
+                float currUpdate = __instance.SelectedWIP.m_PercentComplete - __state;
+                float percentagePoints = __state + (currUpdate / ToolsQuality.ToolsQualityMod(tool));
+                ToolsQuality.Log(percentagePoints + " " + last15minPct + " " + currUpdate);
+                __instance.SelectedWIP.m_PercentComplete = Mathf.Min(percentagePoints, last15minPct);
+              }
             }
-            ToolsQuality.Log("Panel_Crafting_update: " + __state + " " + wip?.m_PercentComplete.ToString());
+            ToolsQuality.Log("Panel_Crafting_update -");
           }
 
         }

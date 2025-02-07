@@ -24,5 +24,14 @@ Improvised tool at 0% (well 5% if we go with path that they do not get broken) i
 Manufactured at 0% efficiency is 0, at Y% is 50 (where Y is low threshold / breaking point), at X% is 300 (where X is threshold up to where degradation starts).
 If boost is enabled, there is also Z% - if quality is above Z%, tool efficiency can go above 300. Disabling boost will be done by setting it to 100%.
 0% > Y% > X% > Z% >= 100%
-
 ![graphs](/TQ_graph1.png)
+
+### Issues / shortcommings.
+If this mod is enabled for crafting time will be adjusted drastically based on tool condition.
+In same time, it also might adjust materials needed - bad tool condition, most likely will cause more materials needed; similary good condition might cause less materials to be used.
+This is, because vanilla consume items based on % done and current game-code doesn't easly allow to inject on this function. I actually do reset that value in end of crafting.
+More, last 10 minutes need's to be done using no alterations, ortherwise item will not be finished ever. For this, each crafting that have "Work In Progress" item, will be done in at-least two stages.
+And cherry on top - UI will not update correctly after returning from crafting - You need to change tool/change bluepring back and forth.
+
+If You do not like any of this, set it off in settings.
+

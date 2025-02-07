@@ -35,6 +35,11 @@ namespace ToolsQuality
 		[Description("If enabled, lower condition of tool will increase action time (settings below). Vanila is off.")]
 		public bool ToolsQualityEnabled = false;
 
+    [Name("Tools quality for crafting")]
+		[Description("As Above but for crafting.\nPLEASE READ README!! as some ceveat's to be expected.")]
+		public bool ToolsQualityEnabledCrafting = false;
+
+
 		[Section("Manufactured tools")]
 		[Name("Low Quality condition point")]
 		[Description("Below (incluisive) this condition tool will be performing with mutiplier of next value.")]
@@ -112,7 +117,8 @@ namespace ToolsQuality
 				ImpHighQpct = ImpLowQpct;
 			}
 			if (ToolsQualityEnabled)
-            {
+      {
+        SetFieldVisible(nameof(ToolsQualityEnabledCrafting), true);
 				SetFieldVisible(nameof(ManLowQpct), true);
 				SetFieldVisible(nameof(ManLowQTime), true);
 				SetFieldVisible(nameof(ManHighQpct), true);
@@ -123,7 +129,8 @@ namespace ToolsQuality
 				SetFieldVisible(nameof(ImpHighQpct), true);
 			}
 			else
-            {
+      {
+        SetFieldVisible(nameof(ToolsQualityEnabledCrafting), false);
 				SetFieldVisible(nameof(ManLowQpct), false);
 				SetFieldVisible(nameof(ManLowQTime), false);
 				SetFieldVisible(nameof(ManHighQpct), false);
