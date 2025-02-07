@@ -9,7 +9,7 @@ namespace ToolsQuality
 	{
 		internal const string ModName = "ToolsQuality";
 		internal const string ModAuthor = "ttr";
-		internal const string ModVersion = "2.2.1";
+		internal const string ModVersion = "2.3.0";
 	}
     internal class ToolsQuality : MelonMod
 	{
@@ -21,7 +21,7 @@ namespace ToolsQuality
         }
         public static void Log(string msg)
         {
-            MelonLogger.Msg(msg);
+            //MelonLogger.Msg(msg);
         }
         public static float ToolsQualityMod(GearItem tool)
         {

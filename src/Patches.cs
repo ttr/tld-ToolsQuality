@@ -1,8 +1,6 @@
 ﻿using HarmonyLib;
 using UnityEngine;
-using MelonLoader;
 using Il2Cpp;
-using UnityEngine.Playables;
 
 
 namespace ToolsQuality
@@ -70,7 +68,7 @@ namespace ToolsQuality
                 // label does not update
                 if (__instance.m_Label_EstimatedTime != null)
                 {
-                    __instance.m_Label_EstimatedTime.text = Utils.GetExpandedDurationString(Mathf.RoundToInt(__result));
+                  __instance.m_Label_EstimatedTime.text = Utils.GetExpandedDurationString(Mathf.RoundToInt(__result));
                 }
                 
             }
@@ -84,9 +82,29 @@ namespace ToolsQuality
                 GearItem tool = __instance.m_RequirementContainer.GetSelectedTool();
                 if (tool)
                 {
-                    __result = (int)(__result * ToolsQuality.ToolsQualityMod(tool));
+                  __result = (int)(__result * ToolsQuality.ToolsQualityMod(tool));
                 }
             }
+        }
+        [HarmonyPatch(typeof(Panel_Crafting), nameof(Panel_Crafting.Update))]
+        public class Panel_Crafting_Update {
+          private static void Prefix(Panel_Crafting __instance, out float __state){
+            ToolsQuality.Log("Panel_Crafting_update +");
+            __state = 0f;
+            InProgressCraftItem wip = __instance.SelectedWIP;
+            if (wip){
+              __state = wip.m_PercentComplete;
+            }
+          }
+          private static void Postfix(Panel_Crafting __instance, ref float __state){
+            InProgressCraftItem wip = __instance.SelectedWIP;
+            GearItem tool = __instance.m_RequirementContainer.GetSelectedTool();
+            if (wip && tool){
+              wip.m_PercentComplete = __state + ((wip.m_PercentComplete - __state) / ToolsQuality.ToolsQualityMod(tool));
+            }
+            ToolsQuality.Log("Panel_Crafting_update: " + __state + " " + wip?.m_PercentComplete.ToString());
+          }
+
         }
     }
 }

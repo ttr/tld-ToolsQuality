@@ -92,7 +92,7 @@ namespace ToolsQuality
 		[Description("Above (incluisive) this condition, tool will not have penalty")]
 		[Slider(0, 100, 101)]
 		public int ImpHighQpct = 100;
-		protected override void OnChange(FieldInfo field, object oldValue, object newValue)
+		protected override void OnChange(FieldInfo field, object? oldValue, object? newValue)
 		{
 			RefreshFields();
 		}
@@ -138,7 +138,7 @@ namespace ToolsQuality
 	}
 	internal static class Settings
 	{
-		public static ToolsQualitySettings options;
+		public static ToolsQualitySettings options = new();
 		public static void OnLoad()
 		{
 			options = new ToolsQualitySettings();
